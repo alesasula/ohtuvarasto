@@ -20,7 +20,7 @@ def mehu_setter(mehua):
     mehua.ota_varastosta(3.14)
     print(f"Mehuvarasto: {mehua}")
 
-def virhetilanteita(mehua, olutta):
+def virhe_yleinen():
     print("Virhetilanteita:")
     print("Varasto(-100.0);")
     huono = Varasto(-100.0)
@@ -30,21 +30,23 @@ def virhetilanteita(mehua, olutta):
     huono = Varasto(100.0, -50.7)
     print(huono)
 
-    print(f"Olutvarasto: {olutta}")
-    print("olutta.lisaa_varastoon(1000.0)")
-    olutta.lisaa_varastoon(1000.0)
-    print(f"Olutvarasto: {olutta}")
-
-    print(f"Mehuvarasto: {mehua}")
-    print("mehua.lisaa_varastoon(-666.0)")
-    mehua.lisaa_varastoon(-666.0)
-    print(f"Mehuvarasto: {mehua}")
-
+def virhe_olut(olutta):
     print(f"Olutvarasto: {olutta}")
     print("olutta.ota_varastosta(1000.0)")
     saatiin = olutta.ota_varastosta(1000.0)
     print(f"saatiin {saatiin}")
     print(f"Olutvarasto: {olutta}")
+
+    print(f"Olutvarasto: {olutta}")
+    print("olutta.lisaa_varastoon(1000.0)")
+    olutta.lisaa_varastoon(1000.0)
+    print(f"Olutvarasto: {olutta}")
+
+def virhe_mehu(mehua):
+    print(f"Mehuvarasto: {mehua}")
+    print("mehua.lisaa_varastoon(-666.0)")
+    mehua.lisaa_varastoon(-666.0)
+    print(f"Mehuvarasto: {mehua}")
 
     print(f"Mehuvarasto: {mehua}")
     print("mehua.otaVarastosta(-32.9)")
@@ -52,14 +54,16 @@ def virhetilanteita(mehua, olutta):
     print(f"saatiin {saatiin}")
     print(f"Mehuvarasto: {mehua}")
 
+
 def main():
     mehua = Varasto(100.0)
     olutta = Varasto(100.0, 20.2)
     alku(mehua, olutta)
     olut_getter(olutta)
     mehu_setter(mehua)
-    virhetilanteita(mehua, olutta)
-
+    virhe_yleinen()
+    virhe_olut(olutta)
+    virhe_mehu(mehua)
 
 if __name__ == "__main__":
     main()
